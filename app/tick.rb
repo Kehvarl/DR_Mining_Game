@@ -9,7 +9,7 @@ def tick args
   args.outputs.primitives << args.state.game_map.render
 
   if rand(100) <= 20
-    args.state.game_map.tiles[rand(71)][rand(127)] = nil
+    args.state.game_map.tiles[rand(args.state.game_map.h)][rand(args.state.game_map.w)] = nil
   end
 end
 

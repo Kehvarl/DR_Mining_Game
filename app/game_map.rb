@@ -35,15 +35,17 @@ class Tile < Solid
 end
 
 class Game_Map
-  attr_accessor :background, :tiles
+  attr_accessor :w, :h, :background, :tiles
 
   def initialize
     self.background = Background.new()
     self.tiles = []
+    self.w = 128
+    self.h = 72
 
-    (0..72).each do |y|
+    (0..self.h).each do |y|
       self.tiles << []
-      (0..128).each do |x|
+      (0..self.w).each do |x|
         self.tiles[y]  << Tile.new(x, y)
       end
     end
