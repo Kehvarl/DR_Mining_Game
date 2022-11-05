@@ -12,4 +12,3 @@ def tick args
     args.state.game_map.tiles[rand(args.state.game_map.h)][rand(args.state.game_map.w)] = nil
   end
 end
-
