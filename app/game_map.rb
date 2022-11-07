@@ -12,16 +12,14 @@ class Background < Solid
   end
 end
 
-
-
 class Game_Map
   attr_accessor :w, :h, :background, :tiles
 
   def initialize
-    self.background = Background.new()
+    self.background = Background.new
     self.tiles = []
-    self.w = 128
-    self.h = 72
+    self.w = 32
+    self.h = 18
 
     (0..self.h).each do |y|
       self.tiles << []
