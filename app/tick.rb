@@ -9,6 +9,13 @@ def tick args
   args.outputs.primitives << args.state.game_map.render
 
   if rand(100) <= 20
-    args.state.game_map.tiles[rand(args.state.game_map.h)][rand(args.state.game_map.w)] = nil
+    x = rand(args.state.game_map.h)
+    y = rand(args.state.game_map.w)
+    v = args.state.game_map.tiles[x][y].visible
+    if v then
+      args.state.game_map.tiles[x][y].dig
+    else
+      args.state.game_map.tiles[x][y].set_visible
+    end
   end
 end

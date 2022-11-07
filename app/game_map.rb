@@ -13,10 +13,11 @@ class Background < Solid
 end
 
 class Game_Map
-  attr_accessor :w, :h, :background, :tiles
+  attr_accessor :w, :h, :background, :tiles, :fog
 
   def initialize
     self.background = Background.new
+    self.fog = []
     self.tiles = []
     self.w = 32
     self.h = 18
@@ -24,7 +25,7 @@ class Game_Map
     (0..self.h).each do |y|
       self.tiles << []
       (0..self.w).each do |x|
-        self.tiles[y]  << Tile.new(x, y)
+        self.tiles[y]  << Tile.new(x:x, y:y)
       end
     end
   end
