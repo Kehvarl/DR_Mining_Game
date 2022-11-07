@@ -19,8 +19,8 @@ class Game_Map
     self.background = Background.new
     self.fog = []
     self.tiles = []
-    self.w = 32
-    self.h = 18
+    self.w = 64
+    self.h = 36
 
     (0..self.h).each do |y|
       self.tiles << []
@@ -30,12 +30,12 @@ class Game_Map
     end
   end
 
-  def render
-    out = []
-    out << self.background
+  def render args
+    args.outputs[:game_map].width = 2560
+    args.outputs[:game_map].height = 1440
+    args.outputs[:game_map].primitives << self.background
     self.tiles.each do |e|
-      out << e
+      args.outputs[:game_map].primitives << e
     end
-    out
   end
 end
