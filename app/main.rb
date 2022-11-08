@@ -1,3 +1,7 @@
+# Main.RB
+# Primary file checked by Dragon Ruby
+# Load all class and setup files first, and `Tick.RB` last.
+
 # Load classes here
 
 require 'app/primitives.rb'
