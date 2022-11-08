@@ -1,10 +1,14 @@
-def init args
-  args.state.game_map = Game_Map.new()
+# Tick.RB
+# Contains the `tick` routine which will be called every frame by DragonRuby
+# Must be last included file in Main.RB
+
+def init(args)
+  args.state.game_map = Game_Map.new
   args.state.viewport_x = 640
   args.state.viewport_y = 720
 end
 
-def tick args
+def tick(args)
   if args.state.tick_count == 0
     init args
   end
@@ -41,7 +45,7 @@ def tick args
     x = rand(args.state.game_map.h)
     y = rand(args.state.game_map.w)
     v = args.state.game_map.tiles[x][y].visible
-    if v then
+    if v
       args.state.game_map.tiles[x][y].dig
     else
       args.state.game_map.tiles[x][y].set_visible

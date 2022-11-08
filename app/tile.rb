@@ -1,7 +1,7 @@
 class Tile < Sprite
   attr_accessor :visible, :visible_path, :blocks_sight, :blocks_movement, :mined_path
 
-  def initialize args
+  def initialize(args)
     super
     self.w = args.w || 40
     self.h = args.h || 40
