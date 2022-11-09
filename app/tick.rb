@@ -38,22 +38,22 @@ def tick(args)
 
 
   if args.inputs.keyboard.right
-    args.state.viewport_x += 40
+    args.state.viewport_x += 20
     if args.state.viewport_x >= 1280
       args.state.viewport_x = 1280
     end
   elsif args.inputs.keyboard.left
-    args.state.viewport_x -= 40
+    args.state.viewport_x -= 20
     if args.state.viewport_x <= 0
       args.state.viewport_x = 0
     end
   elsif args.inputs.keyboard.up
-    args.state.viewport_y += 40
+    args.state.viewport_y += 20
     if args.state.viewport_y > 720
       args.state.viewport_y = 720
     end
   elsif args.inputs.keyboard.down
-    args.state.viewport_y -= 40
+    args.state.viewport_y -= 20
     if args.state.viewport_y <= 0
       args.state.viewport_y = 0
     end

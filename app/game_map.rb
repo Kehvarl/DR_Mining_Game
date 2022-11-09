@@ -36,8 +36,8 @@ class Game_Map
   end
 
   def clear(tile_x, tile_y)
-    self.tiles[tile_x][tile_y].set_visible
-    self.tiles[tile_x][tile_y].dig
+    self.tiles[tile_y][tile_x].set_visible
+    self.tiles[tile_y][tile_x].dig
   end
 
   def highlight (tile_x, tile_y)
