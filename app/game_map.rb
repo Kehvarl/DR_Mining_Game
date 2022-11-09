@@ -13,10 +13,11 @@ class Background < Solid
 end
 
 class Game_Map
-  attr_accessor :w, :h, :background, :tiles, :fog
+  attr_accessor :w, :h, :background, :tiles, :fog, :highlights
 
   def initialize
     self.background = Background.new
+    self.highlights = []
     self.fog = []
     self.tiles = []
     self.w = 64
@@ -30,11 +31,27 @@ class Game_Map
     end
   end
 
+  def random_tile
+    [rand(self.w), rand(self.h)]
+  end
+
+  def clear(tile_x, tile_y)
+    self.tiles[tile_x][tile_y].set_visible
+    self.tiles[tile_x][tile_y].dig
+  end
+
+  def highlight (tile_x, tile_y)
+    self.highlights << Tile.new(x:tile_x, y:tile_y, path:'sprites/square/black.png')
+  end
+
   def render args
     args.outputs[:game_map].width = 2560
     args.outputs[:game_map].height = 1440
     args.outputs[:game_map].primitives << self.background
     self.tiles.each do |e|
+      args.outputs[:game_map].primitives << e
+    end
+    self.highlights.each do |e|
       args.outputs[:game_map].primitives << e
     end
   end
