@@ -59,7 +59,7 @@ def tick(args)
     end
   end
 
-  if rand(100) < 0
+  if rand(100) < 33
     x = rand(args.state.game_map.h)
     y = rand(args.state.game_map.w)
     v = args.state.game_map.tiles[x][y].visible
