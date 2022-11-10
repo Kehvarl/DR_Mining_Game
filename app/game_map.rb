@@ -13,7 +13,7 @@ class Background < Solid
 end
 
 class Game_Map
-  attr_accessor :w, :h, :background, :tiles, :fog, :highlights
+  attr_accessor :w, :h, :screen_width, :screen_height, :background, :tiles, :fog, :highlights
 
   def initialize
     self.background = Background.new
@@ -22,6 +22,8 @@ class Game_Map
     self.tiles = []
     self.w = 64
     self.h = 36
+    self.screen_width = 2560
+    self.screen_height = 1440
 
     (0..self.h).each do |y|
       self.tiles << []
@@ -45,8 +47,8 @@ class Game_Map
   end
 
   def render args
-    args.outputs[:game_map].width = 2560
-    args.outputs[:game_map].height = 1440
+    args.outputs[:game_map].width = self.screen_width
+    args.outputs[:game_map].height = self.screen_height
     args.outputs[:game_map].primitives << self.background
     self.tiles.each do |e|
       args.outputs[:game_map].primitives << e
