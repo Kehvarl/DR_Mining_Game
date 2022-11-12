@@ -11,7 +11,12 @@ def init(args)
   args.state.viewport = Viewport.new(args.state.game_map)
   args.state.viewport.center_on(args.state.current_x, args.state.current_y)
 
-  args.state.minimap = Minimap.new(args.state.game_map)
+  args.state.minimap = Viewport.new(args.state.game_map)
+  args.state.minimap.w = args.state.game_map.screen_width
+  args.state.minimap.h = args.state.game_map.screen_height
+  args.state.minimap.display_y = 480
+  args.state.minimap.display_w = 540
+  args.state.minimap.display_h = 144
 
   args.state.game_map.highlight(args.state.current_x, args.state.current_y)
 
