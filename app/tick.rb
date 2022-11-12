@@ -11,6 +11,8 @@ def init(args)
   args.state.viewport = Viewport.new(args.state.game_map)
   args.state.viewport.center_on(args.state.current_x, args.state.current_y)
 
+  args.state.minimap = Minimap.new(args.state.game_map)
+
   args.state.game_map.highlight(args.state.current_x, args.state.current_y)
 
 end
@@ -19,6 +21,8 @@ def tick_render(args)
   args.state.game_map.render(args)
 
   args.state.viewport.render(args)
+
+  args.state.minimap.render(args)
 end
 
 def tick(args)
