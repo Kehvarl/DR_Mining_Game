@@ -1,11 +1,11 @@
 class Viewport
-  attr_accessor :x, :y, :w, :h, :max_pos_x, :max_pos_y, :game_map, :center_x, :center_y
+  attr_accessor :x, :y, :w, :h, :display_w, :display_h, :max_pos_x, :max_pos_y, :game_map, :center_x, :center_y
 
   def initialize(game_map)
-    super
-    # self.game_map = game_map
     self.w = 1280
     self.h = 720
+    self.display_w = 640
+    self.display_h = 360
     self.max_pos_x = game_map.screen_width - self.w
     self.max_pos_y = game_map.screen_height - self.h
   end
@@ -37,7 +37,7 @@ class Viewport
   end
 
   def render(args)
-    args.outputs.primitives << {x: 0, y: 0, w: self.w, h: self.h,
+    args.outputs.primitives << {x: 0, y: 0, w: self.display_w, h: self.display_h,
                                 path: :game_map,
                                 source_x: self.x, source_y: self.y,
                                 source_w: self.w, source_h: self.h}.sprite!
