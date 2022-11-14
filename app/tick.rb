@@ -10,6 +10,8 @@ def init(args)
 
   args.state.viewport = Viewport.new(args.state.game_map)
   args.state.viewport.center_on(args.state.current_x, args.state.current_y)
+  args.state.viewport.display_w = 1280
+  args.state.viewport.display_h = 720
 
   args.state.minimap = Viewport.new(args.state.game_map)
   args.state.minimap.w = args.state.game_map.screen_width
@@ -27,7 +29,7 @@ def tick_render(args)
 
   args.state.viewport.render(args)
 
-  args.state.minimap.render(args)
+  # args.state.minimap.render(args)
 end
 
 def tick(args)
