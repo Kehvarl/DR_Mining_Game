@@ -20,7 +20,7 @@ def init(args)
   args.state.minimap.display_w = 540
   args.state.minimap.display_h = 144
 
-  args.state.game_map.highlight(args.state.current_x, args.state.current_y)
+  args.state.game_map.entities << Entity.new(x:args.state.current_x, y:args.state.current_y)
 
 end
 
