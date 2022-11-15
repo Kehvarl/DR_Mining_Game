@@ -5,6 +5,7 @@
 # Load classes here
 require 'app/primitives.rb'
 require 'app/tile.rb'
+require 'app/entity.rb'
 require 'app/game_map.rb'
 require 'app/viewport.rb'
 require 'app/minimap.rb'

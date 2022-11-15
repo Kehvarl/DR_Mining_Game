@@ -13,11 +13,11 @@ class Background < Solid
 end
 
 class Game_Map
-  attr_accessor :w, :h, :screen_width, :screen_height, :background, :tiles, :fog, :highlights
+  attr_accessor :w, :h, :screen_width, :screen_height, :background, :tiles, :fog, :entities
 
   def initialize
     self.background = Background.new
-    self.highlights = []
+    self.entities = []
     self.fog = []
     self.tiles = []
     self.w = 64
@@ -42,10 +42,6 @@ class Game_Map
     self.tiles[tile_y][tile_x].dig
   end
 
-  def highlight (tile_x, tile_y)
-    self.highlights << Tile.new(x:tile_x, y:tile_y, path:'sprites/square/black.png')
-  end
-
   def render args
     args.outputs[:game_map].width = self.screen_width
     args.outputs[:game_map].height = self.screen_height
@@ -53,7 +49,7 @@ class Game_Map
     self.tiles.each do |e|
       args.outputs[:game_map].primitives << e
     end
-    self.highlights.each do |e|
+    self.entities.each do |e|
       args.outputs[:game_map].primitives << e
     end
   end
