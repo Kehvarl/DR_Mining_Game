@@ -54,3 +54,11 @@ class Game_Map
     end
   end
 end
+
+# Game Map
+# Tracks Tiles
+# Tracks Entity Locations
+# Tracks Explored Areas
+#   Might move this to Entity
+# Tracks Lit Areas
+#   Might move this to Entity
