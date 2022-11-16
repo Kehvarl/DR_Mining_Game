@@ -27,3 +27,9 @@ class Tile < Sprite
   end
 end
 
+#A Tile is a space on the Game Map
+#   Can be empty or filled
+#   If filled has a hardness, HP, and possible resource values
+#   Digging is reduced by hardness and reduces HP
+#   When Tile HP reaches 0, digging entity gains tile resources
+#   If digger can't hold things, resources are dropped on the tile
