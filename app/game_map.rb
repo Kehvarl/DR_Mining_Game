@@ -46,16 +46,13 @@ class Game_Map
     args.outputs[:game_map].width = self.screen_width
     args.outputs[:game_map].height = self.screen_height
     args.outputs[:game_map].primitives << self.background
-    self.tiles.each do |e|
-      args.outputs[:game_map].primitives << e
-    end
-    self.entities.each do |e|
-      args.outputs[:game_map].primitives << e
-    end
+
+    args.outputs[:game_map].primitives << self.tiles
+    args.outputs[:game_map].primitives << self.entities
   end
 end
 
-# Game Map
+# Game Mapruby
 # Tracks Tiles
 # Tracks Entity Locations
 # Tracks Explored Areas
