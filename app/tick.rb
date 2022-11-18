@@ -39,6 +39,10 @@ def tick(args)
 
   tick_render args
 
+  args.state.game_map.entities.each do |e|
+    e.handle_keys(args)
+  end
+
   if args.inputs.keyboard.right
     args.state.viewport.move({dx:20})
   elsif args.inputs.keyboard.left
