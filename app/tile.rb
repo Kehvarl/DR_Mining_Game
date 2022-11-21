@@ -1,5 +1,5 @@
 class Tile < Sprite
-  attr_accessor :visible, :visible_path, :blocks_sight, :blocks_movement, :mined_path
+  attr_accessor :visible, :visible_path, :blocks_sight, :blocks_movement, :mined_path, :hardness, :hp
 
   def initialize(args)
     super
@@ -13,6 +13,8 @@ class Tile < Sprite
     self.visible = args.visible || false
     self.blocks_sight = args.blocks_sight || true
     self.blocks_movement = args.blocks_movement || true
+    self.hardness = args.hardness || 0
+    self.hp = args.hp || 10
   end
 
   def set_visible
