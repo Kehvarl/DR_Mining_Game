@@ -32,17 +32,7 @@ def tick_render(args)
   # args.state.minimap.render(args)
 end
 
-def tick(args)
-  if args.state.tick_count == 0
-    init args
-  end
-
-  tick_render args
-
-  args.state.game_map.entities.each do |e|
-    e.handle_keys(args)
-  end
-
+def handle_keys (args)
   if args.inputs.keyboard.right
     args.state.viewport.move({dx:20})
   elsif args.inputs.keyboard.left
@@ -52,7 +42,9 @@ def tick(args)
   elsif args.inputs.keyboard.down
     args.state.viewport.move({dy:-20})
   end
+end
 
+def tile_remove(args)
   if rand(100) < 33
     x = rand(args.state.game_map.h)
     y = rand(args.state.game_map.w)
@@ -63,4 +55,17 @@ def tick(args)
       args.state.game_map.tiles[x][y].set_visible
     end
   end
+end
+
+def tick(args)
+  if args.state.tick_count == 0
+    init args
+  end
+
+  handle_keys args
+
+  tick_render args
+
+  tile_remove args
+
 end

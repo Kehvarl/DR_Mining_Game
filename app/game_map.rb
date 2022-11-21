@@ -42,6 +42,20 @@ class Game_Map
     self.tiles[tile_y][tile_x].dig
   end
 
+  def check_limits (x, y)
+    if x < 0
+      x = 0
+    elsif x > self.screen_width - 40
+      x = self.screen_width - 40
+    end
+    if y < 0
+      y = 0
+    elsif y > self.screen_height - 40
+      y = self.screen_height - 40
+    end
+    [x,y]
+  end
+
   def render args
     args.outputs[:game_map].width = self.screen_width
     args.outputs[:game_map].height = self.screen_height
