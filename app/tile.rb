@@ -1,5 +1,5 @@
 class Tile < Sprite
-  attr_accessor :visible, :visible_path, :blocks_sight, :blocks_movement, :mined_path, :hardness, :hp
+  attr_accessor :explored, :visible, :visible_path, :blocks_sight, :blocks_movement, :mined_path, :hardness, :hp
 
   def initialize(args)
     super
@@ -11,6 +11,7 @@ class Tile < Sprite
     self.visible_path = args.visible_path || 'sprites/tile/wall-0000.png'
     self.mined_path = args.mined_path || 'sprites/tile/wall-1111.png'
     self.visible = args.visible || false
+    self.explored = args.explored || false
     self.blocks_sight = args.blocks_sight || true
     self.blocks_movement = args.blocks_movement || true
     self.hardness = args.hardness || 0
@@ -22,10 +23,16 @@ class Tile < Sprite
     self.path =  self.visible_path
   end
 
-  def dig
-    self.blocks_sight = false
-    self.blocks_movement = false
-    self.path =  self.mined_path
+  def dig(damage)
+    d = damage - self.hardness
+    if d > 0
+      self.hp -= d
+    end
+    if self.hp <= 0
+      self.blocks_sight = false
+      self.blocks_movement = false
+      self.path =  self.mined_path
+    end 
   end
 end
 
