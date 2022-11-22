@@ -33,14 +33,24 @@ def tick_render(args)
 end
 
 def handle_keys (args)
-  if args.inputs.keyboard.right
+  if args.inputs.keyboard.key_up.right
     args.state.viewport.move({dx:20})
-  elsif args.inputs.keyboard.left
+  elsif args.inputs.keyboard.key_up.left
     args.state.viewport.move({dx:-20})
-  elsif args.inputs.keyboard.up
+  elsif args.inputs.keyboard.key_up.up
     args.state.viewport.move({dy:20})
-  elsif args.inputs.keyboard.down
+  elsif args.inputs.keyboard.key_up.down
     args.state.viewport.move({dy:-20})
+  end
+
+  if args.inputs.keyboard.key_up.d
+    args.state.game_map.move({dx:40})
+  elsif args.inputs.keyboard.key_up.a
+    args.state.game_map.move({dx:-40})
+  elsif args.inputs.keyboard.key_up.w
+    args.state.game_map.move({dy:40})
+  elsif args.inputs.keyboard.key_up.s
+    args.state.game_map.move({dy:-40})
   end
 end
 
@@ -65,7 +75,4 @@ def tick(args)
   handle_keys args
 
   tick_render args
-
-  tile_remove args
-
 end

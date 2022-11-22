@@ -39,7 +39,17 @@ class Game_Map
 
   def clear(tile_x, tile_y)
     self.tiles[tile_y][tile_x].set_visible
-    self.tiles[tile_y][tile_x].dig
+    self.tiles[tile_y][tile_x].dig(100000)
+  end
+
+  def move args
+    x = self.entities[0].x"path/to/file"
+    y = self.entities[0].y
+    x += args.dx || 0
+    y += args.dy || 0
+    x, y = self.check_limits(x, y)
+    self.entities[0].x = x
+    self.entities[0].y = y
   end
 
   def check_limits (x, y)
@@ -66,7 +76,7 @@ class Game_Map
   end
 end
 
-# Game Mapruby
+# Game Map
 # Tracks Tiles
 # Tracks Entity Locations
 # Tracks Explored Areas
