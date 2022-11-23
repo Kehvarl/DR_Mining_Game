@@ -33,13 +33,13 @@ def tick_render(args)
 end
 
 def handle_keys (args)
-  if args.inputs.keyboard.key_up.right
+  if args.inputs.keyboard.key_down.right
     args.state.viewport.move({dx:20})
-  elsif args.inputs.keyboard.key_up.left
+  elsif args.inputs.keyboard.key_down.left
     args.state.viewport.move({dx:-20})
-  elsif args.inputs.keyboard.key_up.up
+  elsif args.inputs.keyboard.key_down.up
     args.state.viewport.move({dy:20})
-  elsif args.inputs.keyboard.key_up.down
+  elsif args.inputs.keyboard.key_down.down
     args.state.viewport.move({dy:-20})
   end
 
