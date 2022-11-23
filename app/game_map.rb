@@ -43,13 +43,17 @@ class Game_Map
   end
 
   def move args
-    x = self.entities[0].x"path/to/file"
+    x = self.entities[0].x
     y = self.entities[0].y
     x += args.dx || 0
     y += args.dy || 0
     x, y = self.check_limits(x, y)
-    self.entities[0].x = x
-    self.entities[0].y = y
+    if self.tiles[y.div(40)][x.div(40)].blocks_movement
+      self.tiles[y.div(40)][x.div(40)].dig(5)
+    else
+      self.entities[0].x = x
+      self.entities[0].y = y
+    end
   end
 
   def check_limits (x, y)
