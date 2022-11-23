@@ -44,13 +44,13 @@ def handle_keys (args)
   end
 
   if args.inputs.keyboard.key_down.d
-    args.state.game_map.move({dx:40})
+    args.state.game_map.move({entity: 0, dx:40})
   elsif args.inputs.keyboard.key_down.a
-    args.state.game_map.move({dx:-40})
+    args.state.game_map.move({entity: 0, dx:-40})
   elsif args.inputs.keyboard.key_down.w
-    args.state.game_map.move({dy:40})
+    args.state.game_map.move({entity: 0, dy:40})
   elsif args.inputs.keyboard.key_down.s
-    args.state.game_map.move({dy:-40})
+    args.state.game_map.move({entity: 0, dy:-40})
   end
 end
 
