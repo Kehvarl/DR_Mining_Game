@@ -8,8 +8,8 @@ class Tile < Sprite
     self.x = args.x * self.w
     self.y = args.y * self.h
     self.path = args.path || 'sprites/tile/fog-001.png'
-    self.visible_path = args.visible_path || 'sprites/tile/wall-0000.png'
-    self.mined_path = args.mined_path || 'sprites/tile/wall-1111.png'
+    self.visible_path = args.visible_path || 'sprites/tile/wall-1111.png'
+    self.mined_path = args.mined_path || 'sprites/tile/wall-0000.png'
     self.visible = args.visible || false
     self.explored = args.explored || false
     self.blocks_sight = args.blocks_sight || true
@@ -32,7 +32,7 @@ class Tile < Sprite
       self.blocks_sight = false
       self.blocks_movement = false
       self.path =  self.mined_path
-    end 
+    end
   end
 end
 

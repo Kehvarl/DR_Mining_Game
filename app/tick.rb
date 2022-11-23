@@ -33,23 +33,23 @@ def tick_render(args)
 end
 
 def handle_keys (args)
-  if args.inputs.keyboard.key_up.right
+  if args.inputs.keyboard.key_held.right
     args.state.viewport.move({dx:20})
-  elsif args.inputs.keyboard.key_up.left
+  elsif args.inputs.keyboard.key_held.left
     args.state.viewport.move({dx:-20})
-  elsif args.inputs.keyboard.key_up.up
+  elsif args.inputs.keyboard.key_held.up
     args.state.viewport.move({dy:20})
-  elsif args.inputs.keyboard.key_up.down
+  elsif args.inputs.keyboard.key_held.down
     args.state.viewport.move({dy:-20})
   end
 
-  if args.inputs.keyboard.key_up.d
+  if args.inputs.keyboard.key_down.d
     args.state.game_map.move({dx:40})
-  elsif args.inputs.keyboard.key_up.a
+  elsif args.inputs.keyboard.key_down.a
     args.state.game_map.move({dx:-40})
-  elsif args.inputs.keyboard.key_up.w
+  elsif args.inputs.keyboard.key_down.w
     args.state.game_map.move({dy:40})
-  elsif args.inputs.keyboard.key_up.s
+  elsif args.inputs.keyboard.key_down.s
     args.state.game_map.move({dy:-40})
   end
 end
