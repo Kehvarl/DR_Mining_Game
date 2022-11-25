@@ -43,16 +43,17 @@ class Game_Map
   end
 
   def move args
-    x = self.entities[0].x
-    y = self.entities[0].y
+    e = self.entities[args.entity || 0]
+    x = e.x
+    y = e.y
     x += args.dx || 0
     y += args.dy || 0
     x, y = self.check_limits(x, y)
     if self.tiles[y.div(40)][x.div(40)].blocks_movement
       self.tiles[y.div(40)][x.div(40)].dig(5)
     else
-      self.entities[0].x = x
-      self.entities[0].y = y
+      e.x = x
+      e.y = y
     end
   end
 
@@ -79,11 +80,3 @@ class Game_Map
     args.outputs[:game_map].primitives << self.entities
   end
 end
-
-# Game Map
-# Tracks Tiles
-# Tracks Entity Locations
-# Tracks Explored Areas
-#   Might move this to Entity
-# Tracks Lit Areas
-#   Might move this to Entity
