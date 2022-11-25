@@ -80,11 +80,3 @@ class Game_Map
     args.outputs[:game_map].primitives << self.entities
   end
 end
-
-# Game Map
-# Tracks Tiles
-# Tracks Entity Locations
-# Tracks Explored Areas
-#   Might move this to Entity
-# Tracks Lit Areas
-#   Might move this to Entity
